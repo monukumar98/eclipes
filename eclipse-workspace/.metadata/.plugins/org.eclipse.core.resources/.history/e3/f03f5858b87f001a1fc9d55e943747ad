@@ -1,0 +1,30 @@
+package Dynamicprogramming;
+
+import java.util.Scanner;
+
+public class ValentineDay {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int nob = sc.nextInt();
+		int nog = sc.nextInt();
+		int boy[] = new int[nob];
+		int girl[] = new int[nog];
+
+	}
+
+	public static int valentinemagic(int[] boy, int girl[], int i, int j) {
+		if (i == boy.length) {
+			return 0;
+		}
+		if(j==girl.length) {
+			return Integer.MAX_VALUE;
+		}
+		int fn = Math.abs(boy[i]-girl[j])+valentinemagic(boy, girl, i+1, j+1);
+		int fn2 = valentinemagic(boy, girl, i, j+1);
+		return Math.min(fn, fn2);
+
+	}
+
+}

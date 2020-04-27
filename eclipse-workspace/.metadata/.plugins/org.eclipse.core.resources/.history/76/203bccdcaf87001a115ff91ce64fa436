@@ -1,0 +1,51 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		int[] arr = new int[N];
+
+		for (int i = 0; i < N; i++) {
+			arr[i] = s.nextInt();
+		}
+		sortinlinear(arr);
+	}
+
+	public static void sortinlinear(int[] arr) {
+		int low = 0;
+		int high = arr.length - 1, mid = 0;
+		int i=0;
+		while (i<arr.length) {
+			if (arr[mid] == 0) {
+				swap(arr, arr[low], arr[mid]);
+				low++;
+				mid++;
+			} else if (arr[mid] == 1) {
+				mid++;
+			} else {
+				swap(arr, arr[mid], arr[high]);
+				high--;
+			}
+			i++
+		}
+		display(arr, arr.length);
+
+	}
+
+	public static void swap(int[] arr, int a, int b) {
+		int temp;
+		temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+	}
+
+	public static void display(int arr[], int N) {
+		for (int i = 0; i < N; i++) {
+			System.out.println(arr[i]);
+		}
+	}
+}

@@ -1,0 +1,27 @@
+package LiveApr;
+
+import java.util.*;
+
+public class Doubtspat {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int i = 0, k, j, sp = 0;
+		while (i < n) {
+			j = 1;
+			k = 0;
+			if (i != 0)
+				sp = 2 * i - 1;
+			while (j <= n - i) {
+				System.out.print(j+" ");
+				j++;
+			}
+			while (k < sp) {
+				System.out.print("* ");
+				k++;
+			}
+			i++;
+			System.out.println();
+		}
+	}
+}

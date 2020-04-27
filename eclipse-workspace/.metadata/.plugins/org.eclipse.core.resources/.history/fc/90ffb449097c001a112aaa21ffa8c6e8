@@ -1,0 +1,16 @@
+package ProblemSet;
+import java.util.*;
+public class doubts {
+	public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        String[] array = new String[N];
+        for(int i = 0; i < N; i++){
+            array[i] = scanner.next();
+        }
+        for(int i=0; i<N; i++) {
+        	System.out.print(array[i]+" ");
+        }
+    }
+}

@@ -1,0 +1,66 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class Doubtspat {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+
+		int n = sc.nextInt();
+		// row
+		int row = 1;
+		int nst = n/2+1;
+		int nsp=0;
+		while(row<=n) {
+			
+			//star work
+			int cst=1;
+			while(cst<=nst) {
+				System.out.print("*\t");
+				cst++;
+			}
+			//space work
+			int csp=1;
+			while(csp<=nsp) {
+				System.out.print(" \t");
+				csp++;
+			}
+			//star
+			if(row==1 || row==n) {
+				cst=1;
+				while(cst<=nst-1)
+				{
+					
+					System.out.print("*\t");
+					cst++;
+				}
+			}
+			else {
+			 cst=1;
+			while(cst<=nst)
+			{
+				if(cst>=nst/2)
+				System.out.print("*\t");
+				cst++;
+			}
+			}
+			//prep
+			System.out.println();
+			if(row<=n/2) {
+				nsp=nsp+2;
+				nst--;
+			}
+			else
+			{
+				nsp-=2;
+				nst++;
+			}
+			row++;
+		}
+
+	}
+
+}

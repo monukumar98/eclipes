@@ -1,0 +1,23 @@
+package LiveApr;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String s = "aaabbd";
+		char cc = s.charAt(0);
+		int count = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (cc == s.charAt(i)) {
+				count++;
+			} else {
+				System.out.print(cc + "" + count);
+				cc = s.charAt(i);
+				count = 1;
+			}
+		}
+		System.out.print(cc + "" + count);
+	}
+}

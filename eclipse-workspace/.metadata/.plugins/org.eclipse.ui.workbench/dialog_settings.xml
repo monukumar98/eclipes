@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="dialogHeight" value="667"/>
+		<item key="dialogWidth" value="783"/>
+		<list key="orderedElements">
+			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="org.eclipse.ui.views.ContentOutline"/>
+			<item value="org.eclipse.debug.ui.LaunchDelegatesPreferencePage"/>
+			<item value="org.eclipse.debug.ui.DebugView"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.preferences"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textEntries">
+			<item value="2"/>
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="con"/>
+			<item value="co"/>
+			<item value="out"/>
+			<item value="debug"/>
+			<item value="deb"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="340"/>
+		<item key="DIALOG_Y_ORIGIN" value="2"/>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="-123"/>
+		<item key="DIALOG_Y_ORIGIN" value="-149"/>
+		<item key="DIALOG_WIDTH" value="804"/>
+		<item key="DIALOG_HEIGHT" value="740"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+</section>

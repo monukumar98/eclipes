@@ -1,0 +1,32 @@
+package LiveApr;
+
+import java.util.PriorityQueue;
+
+import java.util.*;
+
+public class Merge_K_sorted_Arrays {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		PriorityQueue<Long> MinHeap = new PriorityQueue<Long>();
+		int k = sc.nextInt();
+		int n = sc.nextInt();
+		long arr[] = new long[k * n];
+		for (int i = 0; i < k; i++) {
+			for (int j = 0; j < n; j++)
+				MinHeap.add(sc.nextLong());
+
+		}
+//		System.out.println(MinHeap.size());
+//		System.out.println(MinHeap);
+		int i = 0;
+		while (!MinHeap.isEmpty()) {
+			arr[i++] = MinHeap.poll();
+		}
+		for (long val : arr) {
+			System.out.print(val + " ");
+		}
+
+	}
+}

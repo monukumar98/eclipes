@@ -1,0 +1,52 @@
+package LiveApr;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+
+public class SortGame {
+	private  static class Employee {
+		public String name;
+		public int salary;
+
+		public Employee(String name, int salary) {
+			this.name = name;
+			this.salary = salary;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+
+		int x = sc.nextInt();
+		int n = sc.nextInt();
+		Employee arr[] = new Employee[n];
+		for (int i = 0; i < n; i++) {
+			String str = sc.next();
+			int val = sc.nextInt();
+
+			arr[i] = new Employee(str, val);
+		}
+		Arrays.sort(arr, new Comparator<Employee>() {
+
+			@Override
+			public int compare(Employee e1, Employee e2) {
+				// TODO Auto-generated method stub
+				if (e1.salary == e2.salary) {
+					return e1.name.compareTo(e2.name);
+				} else {
+					return e2.salary - e1.salary;
+				}
+			}
+
+		});
+		for (Employee emp : arr) {
+			if (emp.salary > x)
+				System.out.println(emp.name + " " + emp.salary);
+		}
+	}
+
+}

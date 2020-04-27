@@ -1,0 +1,74 @@
+package LiveApr;
+import java.util.*;
+public class Doubtspat {
+    public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int n=sc.nextInt();
+		int nst=0;
+		int nsp=0;
+			System.out.println(Math.pow(41687671 , 156));
+		//1stLine
+		nsp=1;
+		while(nsp<=n-1)
+		{	
+			System.out.print(" ");
+			nsp++;
+		}
+//		if(row==1 || row==n) {
+//			
+//		}
+		while(nst<=n)
+		{  
+			
+			System.out.print("*");
+			nst++;
+		}
+		System.out.println();
+		//3 Lines
+		nsp=nst=0;
+		int nspr=nsp-4;
+		int nspl=n-2;
+		int row=1;
+		while(row<=n-2 && row>0)
+		{	
+			while(nspl<=n-2 && nspl>0)
+			{
+				System.out.print(" ");
+				nspl--;
+			}
+			nspl=0;
+			System.out.print("*");
+			while(nsp<=n-2)
+			{
+				System.out.print(" ");
+				nsp++;
+			}
+			nsp=0;
+			System.out.print("*");
+			while(nspr<=n-2 && nspr>0)
+			{
+				System.out.print(" ");
+				nspr++;
+			}
+			nspr=0;
+			if(row<n-2)
+			System.out.println();
+			row++;
+			
+		}
+		System.out.println();
+
+		nsp=nst=0;
+		//last Line
+		while(nst<=n)
+		{
+			System.out.print("*");
+			nst++;
+		}
+		while(nsp<=n-2)
+		{
+			System.out.print(" ");
+			nsp++;
+		}
+    }
+    }

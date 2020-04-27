@@ -1,0 +1,17 @@
+package CodingBlocks;
+
+public class ExcptoinClient {
+	public static void main(String[] args) {
+		ExcptionHanddlig E = new ExcptionHanddlig();
+		try {
+			E.setAge(-10);
+		} catch (Exception e) {
+			System.out.println(e);
+
+		}
+		System.out.println(E.getAge());
+		System.out.println("monu");
+
+	}
+
+}

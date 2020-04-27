@@ -1,0 +1,68 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class MatrixSerch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int[][] arr = new int[n][m];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		int x = sc.nextInt();
+		int l = 0;
+		int hi = n - 1;
+		boolean f = false;
+		while (l <= hi) {
+			int mid = (l + hi) / 2;
+			if (arr[mid][0] <= x && x <= arr[mid][m - 1]) {
+				if(binarySerch(arr[mid], x)) {
+					f=true;
+				return;
+				}else {
+					l++;
+				}
+				return ;
+			}
+			else if(x>arr[mid][0]) {
+				l=mid+1;
+			}
+			else {
+				hi= mid-1;
+			}
+		}
+		if(!f) {
+			System.out.println(0);
+		}
+		else {
+			System.out.println(1);
+		}
+
+	}
+
+	public static boolean binarySerch(int arr[], int x) {
+		int l = 0;
+		int hi = arr.length - 1;
+		while (l <= hi) {
+			int mid = (l + hi) / 2;
+			if (arr[mid] == x) {
+				return true;
+
+			} else if (arr[mid] > x) {
+				hi = mid - 1;
+			} else {
+				l = mid + 1;
+			}
+		}
+		return false;
+
+	}
+
+}

@@ -1,0 +1,39 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		int N = s.nextInt();
+
+		for (int times = 1; times <= N; times++) { // kitne baar input lena a and b ka N=2 hai 2 bar,3 hai to 3 bar
+
+			int a = s.nextInt();
+			int b = s.nextInt();
+			int count = 0;
+			for (int i = a; i <= b; i++) {
+
+				if (i == 1) {
+					i++; // sirf agar a=1 se hua to coz generaly prime k code mei 1 kam nhi rehta
+				}
+
+				int temp = 0;
+
+				for (int j = 2; j <= i - 1; j++) {
+					if (i % j == 0) {
+						temp = 1;
+					}
+
+				}
+				if (temp == 0) {
+					count = count + 1; // counting primes
+				}
+			}
+
+			System.out.println(count); // this gives us count of primes between a nd b 2 3 5 7
+
+		}
+	}
+}

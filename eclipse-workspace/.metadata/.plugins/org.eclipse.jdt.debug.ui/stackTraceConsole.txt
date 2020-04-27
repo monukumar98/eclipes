@@ -1,0 +1,3 @@
+if (row == n) {
+					num1 = n;
+				} else

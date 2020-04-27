@@ -1,0 +1,24 @@
+package LiveApr;
+import java.util.*;
+import java.util.Scanner;
+public class Doubtspat {
+    public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int fn=0, sn=1, next=0, i=0, j=0;
+		System.out.println(0);
+		for(i=1; i<=n; i++){
+			for(j=1; j<=i; j++){
+				int k=1;
+				while(k <= i){
+			System.out.print(sn+" ");
+			next = fn+sn;
+			fn = sn;
+			sn = next;
+			k++;
+		    	}
+			}
+			System.out.println();
+		}
+    }
+}

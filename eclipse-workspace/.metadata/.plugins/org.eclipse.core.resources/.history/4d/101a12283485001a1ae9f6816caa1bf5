@@ -1,0 +1,48 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class FormBiggestNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while (t-- > 0) {
+			int n = sc.nextInt();
+			int arr[] = new int[n];
+			for (int i = 0; i < arr.length; i++) {
+				arr[i] = sc.nextInt();
+			}
+			for (int i = 0; i < arr.length - 1; i++) {
+				for (int j = 0; j < arr.length - 1 - i; j++) {
+					if (compare(arr[j], arr[j + 1])) {
+						
+						int temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+
+				}
+			}
+			for (int val : arr) {
+				System.out.print(val);
+			}
+			System.out.println();
+		}
+	}
+
+	public static boolean compare(int n1, int n2) {
+		String n1n2 = n1 + "" + n2;
+		String n2n1 = n2 + "" + n1;
+		int n1n2int = Integer.parseInt(n1n2);
+		int n2n1int = Integer.parseInt(n2n1);
+		if ((n1n2int > n2n1int)) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+
+}

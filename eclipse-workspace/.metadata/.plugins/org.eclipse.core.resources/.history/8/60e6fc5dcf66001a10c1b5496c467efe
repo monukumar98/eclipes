@@ -1,0 +1,38 @@
+package CodingBlocks;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		Random rand = new Random();
+		int min = 5;
+		int max = 10000000;
+		Set<Integer> set = new HashSet<Integer>();
+		//for (int i = 0; i < 10000; i++) {
+			while(set.size()<100000){
+			set.add(rand.nextInt((max - min) + 1) + min);
+			}
+		long endTime = System.currentTimeMillis();
+//		System.out.println("...............................");
+//		System.out.println((endTime - startTime) / 1000.0);
+		int arr[] = new int[2 * set.size()];
+		int i = 0;
+		for (int val : set) {
+			arr[i++] = val;
+
+		}
+		for (int val : set) {
+			arr[i++] = val;
+
+		}
+		Arrays.sort(arr);
+			System.out.println(arr.length);
+		for(int val : arr)
+		System.out.print(val+" ");
+	}
+	}
+
+}

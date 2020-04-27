@@ -1,0 +1,148 @@
+package ProblemSet;
+
+import java.util.*;
+
+public class sortGame {
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		sortGame g = new sortGame();
+		int x = sc.nextInt();
+		int n = sc.nextInt();
+		// sortGame g = new sortGame();
+		Pair p1[] = new Pair[n];
+		for (int i = 0; i < p1.length; i++) {
+			String s = sc.next();
+			int v = sc.nextInt();
+			p1[i] = g.new Pair(s, v);
+
+		}
+//		for (int i = 0; i < n; i++) {
+//			System.out.println(p1[i].str + " " + p1[i].val);
+//		}
+		mergeSort(p1, 0, p1.length - 1, new value(), new value1());
+		for (int i = 0; i <p1.length; i++) {
+			if (p1[i].val > x) {
+				System.out.println(p1[i].str + " " + p1[i].val);
+			}
+		}
+
+	}
+
+	public static Pair[] mergeTwoSortedArrays(Pair[] one, Pair[] two, Comparator<Pair> comp, Comparator<Pair> comp1) {
+
+		Pair[] ans = new Pair[one.length + two.length];
+
+		int i = 0;
+		int j = 0;
+
+		int k = 0;
+
+		while (i < one.length && j < two.length) {
+
+			if (comp1.compare(one[i], two[j]) > 0) {
+				ans[k] = one[i];
+				i++;
+				k++;
+			} else if (comp1.compare(two[j], one[i]) > 0) {
+				ans[k] = one[j];
+				j++;
+				k++;
+			} else {
+				if (comp.compare(one[i], two[j]) > 0) {
+
+					Pair np = one[i];
+					one[i] = two[j];
+					two[j] = np;
+					i++;
+					j++;
+					k++;
+
+				}
+
+			}
+		}
+
+		if (i == one.length) {
+
+			while (j < two.length) {
+				ans[k] = two[j];
+				j++;
+				k++;
+			}
+
+		}
+
+		if (j == two.length) {
+
+			while (i < one.length) {
+				ans[k] = one[i];
+				i++;
+				k++;
+			}
+
+		}
+
+		return ans;
+
+	}
+
+	public static <T> Pair[] mergeSort(Pair[] arr, int lo, int hi, Comparator<Pair> value1, Comparator<Pair> value) {
+
+		if (lo == hi) {
+			Pair[] br = new Pair[1];
+			br[0] = arr[lo];
+			return br;
+		}
+
+		int mid = (lo + hi) / 2;
+
+		// smaller problem
+		Pair[] fh = mergeSort(arr, lo, mid, value1, value);
+		Pair[] sh = mergeSort(arr, mid + 1, hi, value1, value);
+
+		// self work
+		// Pair<String,int> p = new Pair<>();
+		sortGame g = new sortGame();
+		Pair[] sorted = mergeTwoSortedArrays(fh, sh, value1, value);
+
+		return sorted;
+
+	}
+
+	private class Pair {
+		String str;
+		int val;
+
+		public Pair() {
+			// TODO Auto-generated constructor stub
+		}
+
+		public Pair(String s, int v) {
+			this.str = s;
+			this.val = v;
+		}
+
+	}
+
+	static class value1 implements Comparator<Pair> {
+
+		@Override
+		public int compare(Pair p1, Pair p2) {
+			// TODO Auto-generated method stub
+			return p2.str.compareTo(p1.str);
+		}
+
+	}
+
+	static class value implements Comparator<Pair> {
+
+		@Override
+		public int compare(Pair p1, Pair p2) {
+			// TODO Auto-generated method stub
+			return p1.val - p2.val;
+		}
+
+	}
+
+}

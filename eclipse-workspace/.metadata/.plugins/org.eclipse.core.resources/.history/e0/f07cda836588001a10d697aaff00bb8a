@@ -1,0 +1,55 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class Doubtspat {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int num = sc.nextInt();
+
+		long[] sep = new long[18];
+		int count = 0;
+		int j = 0;
+		for (int i = 0; i < 18; i++) {
+			if (num > 9) {
+				sep[j] = num % 10;
+				num = num / 10;
+				count++;
+				j++;
+			}
+		}
+//		if(num==9) {
+//			sep[j]=9;
+//		}
+//		else {
+//			sep[j]=num;
+//		}
+//		for (int i = 0; i < count - 1; i++) {
+//			if (sep[i] == 9)
+//				sep[i] = 0;
+//		}
+		for (int i = 0; i < count; i++) {
+			if (sep[i] >= 5 && sep[i] < 9) {
+				sep[i] = 9 - sep[i];
+
+			}
+
+		}
+
+		for (int i = count - 1; i >= 0; i--) {
+
+			System.out.print(sep[i]);
+		}
+		if (sep[count - 1] == 9) {
+			System.out.println(9);
+		} else if (9 - sep[count - 1] < sep[count - 1]) {
+			System.out.println(9 - sep[count - 1]);
+		} else {
+			System.out.println(sep[count - 1]);
+		}
+
+	}
+
+}

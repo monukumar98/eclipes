@@ -1,0 +1,41 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class SanketandString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		int k = sc.nextInt();
+		if (k >= str.length()) {
+			System.out.println(str.length());
+			return;
+		} else {
+			System.out.println(Math.max(maximumcharchange(str, 'a', k), maximumcharchange(str, 'b', k)));
+		}
+
+	}
+
+	public static int maximumcharchange(String str, char ch, int k) {
+		int max = 1;
+		int l = 0;
+		int r = 0;
+		int count = 0;
+		while (r < str.length()) {
+			if (str.charAt(r) != ch)
+				count++;
+			while (count > k) {
+				if (str.charAt(l) != ch)
+					count--;
+				l++;
+			}
+			max = Math.max(max, r - l + 1);
+			r++;
+		}
+		return max;
+
+	}
+
+}

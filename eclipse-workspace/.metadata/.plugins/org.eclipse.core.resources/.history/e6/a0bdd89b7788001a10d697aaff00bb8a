@@ -1,0 +1,29 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class SubSequence {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while (t-- > 0) {
+			String str = sc.next();
+			issumzero(str, "");
+		}
+
+	}
+
+	public static void issumzero(String str, String ans) {
+
+		if (str.length() == 0) {
+
+			System.out.println(ans);
+		}
+
+		char ch = str.charAt(0);
+		issumzero(str.substring(1), ans + ch);
+		issumzero(str.substring(1), ans);
+
+	}
+}

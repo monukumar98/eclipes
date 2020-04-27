@@ -1,0 +1,118 @@
+package CodingBlocks;
+
+import java.util.*;
+
+public class BinaryTree {
+	Scanner sc = new Scanner(System.in);
+
+	private class Node {
+		int data;
+		Node left;
+		Node right;
+	}
+
+	private Node root;
+
+	public BinaryTree() {
+	//	this.root = CreateBinaryTree(null, false);
+		this.root=construct(null, false);
+	}
+
+	private Node CreateBinaryTree(Node parent, boolean ilc) {
+		if (parent == null) {
+			System.out.println("Enter root node data");
+		} else {
+			if (ilc) {
+				System.out.println("Enter the data for left child of " + parent.data);
+			} else {
+				System.out.println("Enter the data for right child of " + parent.data);
+			}
+
+		}
+		int item = sc.nextInt();
+		Node node = new Node();
+		node.data = item;
+		System.out.println(node.data + " has left child ?");
+		boolean hlc = sc.nextBoolean();
+		if (hlc) {
+			node.left = CreateBinaryTree(node, true);
+		}
+		System.out.println(node.data + " has right child ?");
+		boolean hrc = sc.nextBoolean();
+
+		if (hrc) {
+			node.right = CreateBinaryTree(node, false);
+		}
+		return node;
+	}
+	private Node construct(Node parent, boolean ilc) {
+
+		if (parent == null) {
+			System.out.println("Enter the data for root node ?");
+		} else {
+
+			if (ilc) {
+				System.out.println("Enter the data for left child of " + parent.data);
+			} else {
+				System.out.println("Enter the data for right child of " + parent.data);
+			}
+
+		}
+
+		int item = sc.nextInt();
+
+		Node nn = new Node();
+		nn.data = item;
+
+		System.out.println(nn.data + " has left child ?");
+		boolean hlc = sc.nextBoolean();
+
+		if (hlc) {
+			nn.left = construct(nn, true);
+		}
+
+		System.out.println(nn.data + " has right child ?");
+		boolean hrc = sc.nextBoolean();
+
+		if (hrc) {
+			nn.right = construct(nn, false);
+		}
+
+		return nn;
+
+	}
+
+
+	public void display() {
+		display(this.root);
+	}
+
+	private void display(Node node) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return;
+		}
+		String str = "";
+		if (node.left != null) {
+			str += node.left.data + "<--";
+		} else {
+			str += "." + "<--";
+		}
+		str += node.data + "-->";
+		if (node.right == null) {
+			str += ".";
+		} else {
+			str += node.right.data;
+		}
+		System.out.println(str);
+		display(node.left);
+		display(node.right);
+
+	}
+
+	public static void main(String[] args) {
+		BinaryTree bt = new BinaryTree();
+		 bt.display();
+
+	}
+}

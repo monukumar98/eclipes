@@ -1,0 +1,92 @@
+package Graphs;
+
+import java.util.*;
+
+public class Graph {
+	private class vertex {
+		HashMap<String, Integer> nebrs = new HashMap<>();
+	}
+
+	HashMap<String, vertex> vtces;
+
+	public Grpah() {
+		vtces = new HashMap<>();
+
+	}
+
+	public int Number_Vextex() {
+		return this.vtces.size();
+
+	}
+
+	public boolean Contains_Vextex(String vname) {
+		return this.vtces.containsKey(vname);
+
+	}
+
+	public void add_vertex(String vname) {
+		vertex vtx = new vertex();
+		vtces.put(vname, vtx);
+
+	}
+
+	public void remove_vertex(String vname) {
+		vertex vtx = vtces.get(vname);
+		for (String key : vtx.nebrs.keySet()) {
+			vertex nebrsvtx = vtces.get(key);
+			nebrsvtx.nebrs.remove(vname);
+		}
+		vtces.remove(vname);
+
+	}
+
+	public int NumberofEdge() {
+		int sum = 0;
+		for (String key : vtces.keySet()) {
+			sum += vtces.get(key).nebrs.size();
+		}
+		return sum / 2;
+
+	}
+
+	public boolean containsEdge(String vname1, String vname2) {
+		vertex v1 = vtces.get(vname1);
+		vertex v2 = vtces.get(vname2);
+		if (v1 == null || v2 == null || !v1.nebrs.containsKey(vname2)) {
+			return false;
+		}
+		return true;
+
+	}
+
+	public void addEdge(String vname1, String vname2, int cost) {
+		vertex v1 = vtces.get(vname1);
+		vertex v2 = vtces.get(vname2);
+		if (v1 == null || v2 == null || v1.nebrs.containsKey(vname2)) {
+			return;
+		}
+		v1.nebrs.put(vname2, cost);
+		v2.nebrs.put(vname1, cost);
+
+	}
+
+	public void remove_edge(String vname1, String vname2) {
+		vertex v1 = vtces.get(vname1);
+		vertex v2 = vtces.get(vname2);
+		if (v1 == null || v2 == null || !v1.nebrs.containsKey(vname2)) {
+			return;
+		}
+		v1.nebrs.remove(vname2);
+		v2.nebrs.remove(vname1);
+}
+
+	public void display() {
+
+		System.out.println("---------------------");
+		for (String key : vtces.keySet()) {
+			System.out.println(key + "-->" + vtces.get(key).nebrs);
+		}
+		System.out.println(".......................");
+	}
+
+}

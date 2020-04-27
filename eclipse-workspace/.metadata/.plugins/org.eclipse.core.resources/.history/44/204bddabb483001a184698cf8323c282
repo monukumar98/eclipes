@@ -1,0 +1,39 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int row = 1;
+		int no = n;
+		int nst = 0;
+		for (int i = 1; i <= n; i++) {
+			System.out.print(i);
+		}
+		nst++;
+		row++;
+		no--;
+		System.out.println();
+		while (row <= n) {
+			int col = 1;
+			int value = 1;
+			while (col <= no) {
+				System.out.print(value);
+				value++;
+				col++;
+			}
+			col = 1;
+			while (col <= nst) {
+				System.out.print("*");
+				col++;
+			}
+			no--;
+			row++;
+			nst = nst + 2;
+			System.out.println();
+		}
+	}
+}

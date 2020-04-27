@@ -1,0 +1,31 @@
+package CodinBloks;
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ public class hii{
+    public static void  main(String[] args)throws java.lang.Exception{
+        Scanner scan=new Scanner(System.in);
+        long n=scan.nextLong();
+      //  long r=reverse(n);
+        long i=1,even=0,odd=0;
+	    while(n>0){
+	        if(i%2==0)
+	            even+=n%10;
+            else
+                odd+=n%10;
+            i++;n/=10;
+	    }
+	    System.out.println(even);
+	     System.out.print(odd);
+    }
+    public static long reverse(long n){
+        long rem=0,rev=0;
+		while(n>0){
+			rem=n%10;
+			rev=rev*10+rem;
+			n/=10;
+		}
+		return rev;
+    }
+}

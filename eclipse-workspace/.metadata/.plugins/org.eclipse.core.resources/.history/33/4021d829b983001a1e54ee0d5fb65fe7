@@ -1,0 +1,37 @@
+package LiveApr;
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+		Scanner s= new Scanner(System.in);
+		long x=s.nextInt();
+	   long m=x;
+	   long d =1;
+	   long a=0,sum=0;
+	   for(;m>9;m/=10)
+		  
+	   {
+		   d*=10;
+	   }
+	   if(x/d==9)
+	   {
+		  
+		   x=x%d;
+		   sum=9;
+		   d/=10;
+	   }
+	   for(;d>0;d/=10)
+	   {
+		 a=x/d;
+		 if(a>=5)
+		 {
+			 a=9-a;
+		 }
+		  sum = sum*10+a;
+		  x=x%d;
+		
+	   }
+	   System.out.println(sum);
+		
+	}
+}

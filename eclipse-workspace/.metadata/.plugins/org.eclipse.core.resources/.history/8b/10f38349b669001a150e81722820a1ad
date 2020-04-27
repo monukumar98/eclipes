@@ -1,0 +1,13 @@
+package CodingBlocks;
+
+public class StackClient {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Stack s = new Stack();
+		s.pop();
+		s.peek();
+
+	}
+
+}

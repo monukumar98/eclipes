@@ -1,0 +1,14 @@
+package LiveApr;
+import java.util.*;
+public class KthRoot {
+    public static void main(String args[]) {
+        // Your Code Here
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t-- >0){
+			long n = sc.nextLong();
+			long k = sc.nextLong();
+			System.out.println((int)(Math.pow(n,(float)(1.0/k))));
+		}
+    }
+}

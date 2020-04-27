@@ -1,0 +1,51 @@
+package LiveApr;
+import java.util.*;
+
+public class Doubtspat {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        while(t--!=0)
+        {
+            int n = s.nextInt();
+            int[] a = new int[n];
+            for(int i=0;i<n;i++)
+            {
+                a[i] = s.nextInt(); 
+            }
+            int max;
+            int maxIndex;
+            for(int i=0;i<n;i++)
+            {
+                String s2=Integer.toString(a[0]);
+                while(s2.length()!=7)
+                {
+                    s2 = s2+"0";
+                }
+                max=Integer.parseInt(s2);
+                maxIndex=0;
+                for(int j=0;j<=n-1-i;j++)
+                {
+                    String s1=Integer.toString(a[j]);
+                    while(s1.length()!=7)
+                    {
+                        s1 = s1+"0";
+                    }
+                    int x=Integer.parseInt(s1);
+                    if(x>max)
+                    {
+                        max = x;
+                        maxIndex = j;
+                    }
+                }
+                int temp = a[n-1-i];
+                a[n-1-i] = a[maxIndex];
+                a[maxIndex] = temp;
+            }
+            for(int i=n-1;i>=0;i--)
+            {
+                System.out.print(a[i]);
+            }
+        }
+    }
+}

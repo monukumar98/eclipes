@@ -1,0 +1,71 @@
+package LiveApr;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Doubtspat {
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = s.nextInt();
+		}
+		int m = s.nextInt();
+		Arrays.sort(arr);
+		for (int i = 0; i < arr.length - 2; i++) {
+			for (int j = i + 1; j < arr.length - 1; j++) {
+				for (int y = j + 1; y < arr.length; y++) {
+
+					int k = 0;
+					k = arr[i] + arr[j] + arr[y];
+					if (k == m) {
+						int a = arr[i];
+						int q = arr[j];
+						int w = arr[y];
+						int[] arr1 = { a, q, w };
+						Arrays.sort(arr1);
+					
+//						for (int p = 0; p < arr1.length - 1; p++) {
+//
+//							int min = p;
+//
+//							for (int u = p + 1; u < arr1.length; u++) {
+//
+//								if (arr[u] < arr[min]) {
+//
+//									min=u;
+//
+//								}
+//
+//							}
+//							swap(arr1, p, min);
+//
+//						}
+
+						display(arr1);
+
+					}
+				}
+			}
+
+		}
+
+		System.out.println();
+
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
+	public static void display(int[] arr) {
+		int length = arr.length;
+		System.out.print(arr[0] + ", " + arr[1] + " and " + arr[2]);
+		System.out.println();
+	}
+}

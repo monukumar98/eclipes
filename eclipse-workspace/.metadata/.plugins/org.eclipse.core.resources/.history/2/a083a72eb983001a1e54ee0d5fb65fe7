@@ -1,0 +1,34 @@
+package LiveApr;
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner (System.in);
+        int n = scanner.nextInt();
+        int row=1,val,zeros=0,nz=0,nst=1;
+        while(row<=n){ int col=1;
+        if(row<=n/2){
+            val=row;col=1;
+            while(col<=nst){
+                System.out.print(val+"\t");
+                col++;
+            }
+        }
+        else{val=row;
+            col=1;
+            while(col<=nst){
+                System.out.print(val+"\t");
+                while(col<=nz){
+                System.out.print(zeros+"\t");   
+                col++;}
+                System.out.print(val+"\t");
+            col++;}
+        }
+        
+        row++;
+        System.out.println();
+    }
+    }
+}
+
+
+

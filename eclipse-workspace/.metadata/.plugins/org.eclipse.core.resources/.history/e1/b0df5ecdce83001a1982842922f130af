@@ -1,0 +1,42 @@
+package LiveApr;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Doubtspat {
+	static int ans[] = new int[5000000 + 5];
+
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+
+		int idx = 0;
+		for (int i = 2; i <= 1000000000; i++) {
+			if (idx < ans.length) {
+				if (isprime(i))
+					ans[idx++] = i;
+			}
+			else {
+				break;
+			}
+		}
+
+		int a = sc.nextInt();
+
+		System.out.println(ans[a - 1]);
+	}
+
+	public static boolean isprime(int n) {
+		if (n == 2 || n == 3) {
+			return true;
+		}
+		if (n % 2 == 0 || n % 3 == 0) {
+			return false;
+		}
+		for (int i = 5; i * i <= n; i += 2) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

@@ -1,0 +1,33 @@
+package LiveApr;
+
+import java.util.*;
+
+public class MappedString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		printanswer(str, "");
+	}
+
+	public static void printanswer(String str, String ans) {
+		if (str.length() == 0) {
+			System.out.println(ans);
+		}
+		char ch1 = str.charAt(0);
+		int ch1int = Character.getNumericValue(ch1);
+		printanswer(str.substring(1), ans + (char) ('a' + ch1int - 1));
+		if (str.length() >= 2) {
+			String Qus = str.substring(0, 2);
+			int Quesint = Integer.parseInt(Qus);
+			if (Quesint <= 26) {
+				printanswer(str.substring(2), ans + Integer.toString(Quesint + 65 - 1));
+
+			}
+
+		}
+
+	}
+
+}

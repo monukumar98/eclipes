@@ -1,0 +1,209 @@
+package CodingBlocks;
+
+import java.util.*;
+import java.util.LinkedList;
+
+public class BinaryTree {
+	Scanner sc = new Scanner(System.in);
+
+// 50 true 25 true 38 false false true 48 true 18 false false false true 45 true 85 false false true 60 false false
+	private class Node {
+		int data;
+		Node left;
+		Node right;
+	}
+
+	private Node root;
+
+	public BinaryTree() {
+		this.root = CreateBinaryTree(null, false);
+		// this.root=construct(null, false);
+	}
+
+	private Node CreateBinaryTree(Node parent, boolean ilc) {
+		if (parent == null) {
+			System.out.println("Enter root node data");
+		} else {
+			if (ilc) {
+				System.out.println("Enter the data for left child of " + parent.data);
+			} else {
+				System.out.println("Enter the data for right child of " + parent.data);
+			}
+
+		}
+		int item = sc.nextInt();
+		Node node = new Node();
+		node.data = item;
+		node.left = null;
+		node.right = null;
+		System.out.println(node.data + " has left child ?");
+		boolean hlc = sc.nextBoolean();
+		if (hlc) {
+			node.left = CreateBinaryTree(node, true);
+		}
+		System.out.println(node.data + " has right child ?");
+		boolean hrc = sc.nextBoolean();
+
+		if (hrc) {
+			node.right = CreateBinaryTree(node, false);
+		}
+		return node;
+	}
+
+	public void display() {
+		display(this.root);
+	}
+
+	private void display(Node node) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return;
+		}
+		String str = "";
+		if (node.left != null) {
+			str += node.left.data + "<--";
+		} else {
+			str += "." + "<--";
+		}
+		str += node.data + "-->";
+		if (node.right == null) {
+			str += ".";
+		} else {
+			str += node.right.data;
+		}
+		System.out.println(str);
+		display(node.left);
+		display(node.right);
+
+	}
+
+	public int max() {
+		return max(this.root);
+	}
+
+	private int max(Node root) {
+		if (root == null) {
+			return Integer.MIN_VALUE;
+
+		}
+
+		int left = max(root.left);
+		int right = max(root.right);
+		return Math.max(root.data, Math.max(left, right));
+
+	}
+
+	public int ht() {
+		return ht(this.root);
+	}
+
+	private int ht(Node root) {
+		if (root == null) {
+			return -1;
+		}
+		int lh = ht(root.left);
+		int rh = ht(root.right);
+		return Math.max(lh, rh) + 1;
+
+		// return 0;
+	}
+
+	public boolean find(int item) {
+		return find(this.root, item);
+	}
+
+	private boolean find(Node node, int item) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return false;
+		}
+		if (node.data == item) {
+			return true;
+		}
+		boolean lf = find(node.left, item);
+		boolean rf = find(node.right, item);
+		return lf || rf;
+	}
+
+	public void postOrder() {
+		postOrder(this.root);
+	}
+
+	private void postOrder(Node node) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return;
+		}
+		System.out.print(node.data + " ");
+		postOrder(node.left);
+//		System.out.print(node.data + " ");
+		postOrder(node.right);
+
+	}
+
+	public void preOrder() {
+		preOrder(this.root);
+
+	}
+
+	private void preOrder(Node node) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return;
+		}
+		System.out.print(node.data + " ");
+		preOrder(node.left);
+
+		preOrder(node.right);
+
+	}
+
+	public void inOrder() {
+		inOrder(this.root);
+	}
+
+	private void inOrder(Node node) {
+		// TODO Auto-generated method stub
+		if (node == null) {
+			return;
+		}
+		inOrder(node.left);
+		System.out.print(node.data + " ");
+		inOrder(node.right);
+
+	}
+
+	public void levelOrder() {
+		LinkedList<Node> queue = new LinkedList<>();
+
+		queue.add(this.root);
+		while (!queue.isEmpty()) {
+			Node rv = queue.removeFirst();
+			System.out.print(root.data + " ");
+			if (rv.left != null) {
+				queue.addLast(rv.left);
+			}
+			if (rv.right != null) {
+				queue.addLast(rv.right);
+
+			}
+
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		BinaryTree bt = new BinaryTree();
+		bt.display();
+		System.out.println(bt.max());
+		System.out.println(bt.ht());
+		System.out.println(bt.find(85));
+		bt.postOrder();
+		System.out.println();
+		bt.preOrder();
+		System.out.println();
+		bt.inOrder();
+		bt.levelOrder();
+
+	}
+}

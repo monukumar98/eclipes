@@ -1,0 +1,39 @@
+package LiveApr;
+
+import java.util.*;
+
+public class Doubtspat {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		long x = s.nextLong();
+		int ans = 0, a = 0;
+//
+//		if (x % 10 == 9)
+//
+//		{
+//			ans = 1;
+//			x /= 10;
+//		}
+		int m=1;
+		while (x > 9) {
+			int k = x %10;;
+			if (k >= 5) {
+				k = 9 - k;
+			}
+			ans = ans  + k*m;
+			
+			x /= 10;
+			m*=10;
+		}
+		if (x == 9)
+			ans = ans + 9*m;
+		else if (x >= 5) {
+			x = 9 - x;
+			ans = ans+ x*m;
+		} else {
+			ans = ans  + x*m;
+		}
+
+		System.out.println(ans);
+	}
+}

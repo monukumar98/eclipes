@@ -1,0 +1,35 @@
+package LiveApr;
+
+import java.util.Scanner;
+
+public class MazePath {
+	static int count = 0;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		printansm(1, 1, n, m, "");
+		System.out.println();
+		System.out.println(count);
+		System.out.println();
+
+	}
+
+	public static void printansm(int i, int j, int n, int m, String string) {
+		// TODO Auto-generated method stub
+		if (i == n && j == m) {
+			System.out.print(string + " ");
+			count++;
+			return;
+		}
+		if (i > n || j > m) {
+			return;
+		}
+		printansm(i + 1, j, n, m, string + "V");
+		printansm(i, j + 1, n, m, string + "H");
+		printansm(i + 1, j + 1, n, m, string + "D");
+	}
+
+}
