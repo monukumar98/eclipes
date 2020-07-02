@@ -12,11 +12,11 @@ public class ExchangingCoins {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		map.put(0, 0l);
-		System.out.println(result(n));
+		System.out.println(exchange(n));
 
 	}
 
-	public static long result(int n) {
+	public static long exchange(int n) {
 		if (n == 0) {
 			return 0;
 		}
@@ -25,7 +25,7 @@ public class ExchangingCoins {
 			return map.get(n);
 		}
 
-		map.put(n, Math.max(n, result(n / 2) + result(n / 3) + result(n / 4)));
+		map.put(n, Math.max(n, exchange(n / 2) + exchange(n / 3) + exchange(n / 4)));
 		return map.get(n);
 
 	}

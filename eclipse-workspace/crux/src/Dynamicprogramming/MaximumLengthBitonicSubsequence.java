@@ -14,6 +14,7 @@ public class MaximumLengthBitonicSubsequence {
 			for (int i = 0; i < n; i++) {
 				arr[i] = sc.nextInt();
 			}
+			
 			System.out.println(BitonicSubsequnce(arr));
 
 		}

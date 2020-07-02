@@ -34,7 +34,7 @@ public class TillingProblem {
 
 		int ans = 0;
 		if (n > m) {
-			ans = (ans + Tilling_Problem(n - 1, m) %( n * m )+ Tilling_Problem(n - m, m) %(n*m))%(n*m);
+			ans = (ans + Tilling_Problem(n - 1, m) % (n * m) + Tilling_Problem(n - m, m) % (n * m)) % (n * m);
 		}
 		return ans;
 

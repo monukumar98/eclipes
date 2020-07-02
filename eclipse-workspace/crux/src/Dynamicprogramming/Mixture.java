@@ -44,4 +44,27 @@ public class Mixture {
 		}
 		return sum % 100;
 	}
+
+	public static int harryBU(int[] arr) {
+		int dp[][] = new int[arr.length][arr.length];
+		for (int slide = 1; slide < arr.length; slide++) {
+			for (int si = 0; si < arr.length - slide; si++) {
+				int ei = si + slide;
+				int min = Integer.MAX_VALUE;
+				for (int k = si; k <= ei-1; k++) {
+					int fh = dp[si][k];
+					int sh = dp[k+1][ei];
+					int sw = colour(arr, si,k)*colour(arr, k+1, ei);
+					min = Math.min(fh+sh+sw, min);
+				}					
+				dp[si][ei]=min;
+
+				
+			}
+
+		}
+		return dp[0][dp.length-1];
+
+	}
+
 }
